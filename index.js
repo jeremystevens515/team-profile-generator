@@ -81,6 +81,7 @@ const prompts = () => {
         });
     };
 
+// this function contains the logic to decide which type of employee object to create based on the answers.empRole property
 const createEmployee = (answers) => {
     if (answers.empRole === 'Manager') {
         createManager(answers);
