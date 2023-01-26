@@ -2,7 +2,8 @@ const inquirer = require('inquirer');
 const { Manager } = require('./lib/classes.js');
 const { Engineer } = require('./lib/classes.js');
 const { Intern } = require('./lib/classes.js');
-const helperCode = require('./src/helper.js');
+const helper = require('./src/helper.js');
+const createHTML = new helper();
 
 // CLI Prompts
 // this function welcomes the user and asks if they are ready to proceed
@@ -17,6 +18,7 @@ const welcomePrompt = () => {
         }
     ]).then((answers) => {
         if (answers.proceed) {
+            createHTML.openTags();
             prompts()
         }
     });
@@ -98,19 +100,22 @@ const createEmployee = (answers) => {
 // function to create manager object
 const createManager = (answers) => {
     let manager = new Manager(answers.empName, answers.empId, answers.empEmail, answers.officeNum);
-    console.log(manager)
+    console.log(manager);
+    createHTML.createManagerCard(manager.empName, manager.empRole, manager.empId, manager.empEmail, manager.officeNum);
 };
 
 // function to create engineer object
 const createEngineer = (answers) => {
     let engineer = new Engineer(answers.empName, answers.empId, answers.empEmail, answers.gitHub);
     console.log(engineer);
+    createHTML.createEngineerCard(engineer.empName, engineer.empRole, engineer.empId, engineer.empEmail, engineer.gitHub);
 };
 
 // function to create intern object
 const createIntern = (answers) => {
     let intern = new Intern(answers.empName, answers.empId, answers.empEmail, answers.school);
     console.log(intern);
+    createHTML.createInternCard(intern.empName, intern.empRole, intern.empId, intern.empEmail, intern.school);
 };
 
 // this function asks the user if there is another employee they would like to add
@@ -126,6 +131,8 @@ const getAddNewEmployee = () => {
     ]).then((answers) => {
         if (answers.makeNewEmployee) {
             prompts();
+        } else {
+            createHTML.closeTags()
         }
     });
 }
