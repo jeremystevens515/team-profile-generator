@@ -100,27 +100,34 @@ const createEmployee = (answers) => {
 // function to create manager object
 const createManager = (answers) => {
     let manager = new Manager(answers.empName, answers.empId, answers.empEmail, answers.officeNum);
-    console.log(manager);
-    createHTML.createManagerCard(manager.empName, manager.empRole, manager.empId, manager.empEmail, manager.officeNum);
+    // console.log(manager);
+    // the manager obejct is passed to createManagerCard as its argument
+    // then the html card is created for the manager
+    createHTML.createManagerCard(manager.name, manager.id, manager.email, manager.officeNumber);
 };
 
 // function to create engineer object
 const createEngineer = (answers) => {
     let engineer = new Engineer(answers.empName, answers.empId, answers.empEmail, answers.gitHub);
-    console.log(engineer);
-    createHTML.createEngineerCard(engineer.empName, engineer.empRole, engineer.empId, engineer.empEmail, engineer.gitHub);
+    // console.log(engineer);
+    // the engineer obejct is passed to createEngineerCard as its argument
+    // then the html card is created for the engineer
+    createHTML.createEngineerCard(engineer.name, engineer.id, engineer.email, engineer.gitHub);
 };
 
 // function to create intern object
 const createIntern = (answers) => {
     let intern = new Intern(answers.empName, answers.empId, answers.empEmail, answers.school);
-    console.log(intern);
-    createHTML.createInternCard(intern.empName, intern.empRole, intern.empId, intern.empEmail, intern.school);
+    // console.log(intern);
+    // the inter obejct is passed to createInternCard as its argument
+    // then the html card is created for the intern
+    createHTML.createInternCard(intern.name, intern.id, intern.email, intern.school);
 };
 
 // this function asks the user if there is another employee they would like to add
 // if their response returns yes/true, then the inital prompts() function runs again
 // this loop will continue until the user answers no/false to this question
+// once the user answers no, the closing tags will be added to the html file
 const getAddNewEmployee = () => {
     inquirer.prompt([
         {
