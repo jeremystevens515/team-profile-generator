@@ -35,17 +35,32 @@ const prompts = () => {
             {
                name: 'empName',
                type: 'input',
-               message: "What is the employee's name?" 
+               message: "What is the employee's name?",
+               validate: (input) => {
+                if (!input) {
+                    console.log('You must enter a name.')
+                }
+               };
             },
             {
                 name: 'empId',
                 type: 'input',
-                message: "What is the employee's ID number?"
+                message: "What is the employee's ID number?",
+                validate: (input) => {
+                    if (!input) {
+                        console.log('You must provide an ID number.')
+                    }
+                   };
             },
             {
                 name: 'empEmail',
                 type: 'input',
-                message: "What is the employee's email address?"
+                message: "What is the employee's email address?",
+                validate: (input) => {
+                    if (!input) {
+                        console.log('You must provide an email address.')
+                    }
+                   };
             },
             {
                 name: 'empRole',
@@ -58,19 +73,34 @@ const prompts = () => {
                 name: 'officeNum',
                 type: 'input',
                 message: "What is the manager's office number?",
-                when: (answers) => answers.empRole === 'Manager'
+                when: (answers) => answers.empRole === 'Manager',
+                validate: (input) => {
+                    if (!input) {
+                        console.log('You must enter an office number.')
+                    }
+                   };
             },
             {
                 name: 'gitHub',
                 type: 'input',
                 message: "What is the engineer's gitHub username?",
-                when: (answers) => answers.empRole === 'Engineer'
+                when: (answers) => answers.empRole === 'Engineer',
+                validate: (input) => {
+                    if (!input) {
+                        console.log('You must provide a gitHub username.')
+                    }
+                   };
             },
             {
                 name: 'school',
                 type: 'input',
                 message: "What school is the intern currently attending?",
-                when: (answers) => answers.empRole === 'Intern'
+                when: (answers) => answers.empRole === 'Intern',
+                validate: (input) => {
+                    if (!input) {
+                        console.log('You must enter a school name.')
+                    }
+                   };
             },
 
         ]).then((answers) => {
