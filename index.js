@@ -39,8 +39,10 @@ const prompts = () => {
                validate: (input) => {
                 if (!input) {
                     console.log('You must enter a name.')
+                    return false;
                 }
-               };
+                return true;
+               }
             },
             {
                 name: 'empId',
@@ -49,8 +51,10 @@ const prompts = () => {
                 validate: (input) => {
                     if (!input) {
                         console.log('You must provide an ID number.')
+                        return false;
                     }
-                   };
+                    return true;
+                   }
             },
             {
                 name: 'empEmail',
@@ -59,8 +63,10 @@ const prompts = () => {
                 validate: (input) => {
                     if (!input) {
                         console.log('You must provide an email address.')
+                        return false;
                     }
-                   };
+                    return true;
+                   }
             },
             {
                 name: 'empRole',
@@ -77,8 +83,10 @@ const prompts = () => {
                 validate: (input) => {
                     if (!input) {
                         console.log('You must enter an office number.')
+                        return false;
                     }
-                   };
+                    return true;
+                   }
             },
             {
                 name: 'gitHub',
@@ -88,8 +96,10 @@ const prompts = () => {
                 validate: (input) => {
                     if (!input) {
                         console.log('You must provide a gitHub username.')
+                        return false;
                     }
-                   };
+                    return true;
+                   }
             },
             {
                 name: 'school',
@@ -99,8 +109,10 @@ const prompts = () => {
                 validate: (input) => {
                     if (!input) {
                         console.log('You must enter a school name.')
+                        return false;
                     }
-                   };
+                    return true;
+                   }
             },
 
         ]).then((answers) => {

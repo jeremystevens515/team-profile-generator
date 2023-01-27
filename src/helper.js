@@ -19,13 +19,13 @@ createHTML.prototype.createManagerCard = (name, id, email, officeNum) => {
 
 createHTML.prototype.createEngineerCard = (name, id, email, gitHub) => {
     fs.appendFile('./dist/index.html', `<div class='card shadow' style='width: 18rem;'>\n<div class='card-body'>\n<h5 class='card-title'>${name}</h5>\n<h6 class='card-subtitle mb-2 text-muted'>Engineer</h6>\n<ul class='list-group list-group-flush'>\n<li class='list-group-item'>ID: ${id}</li>\n<li class='list-group-item'>Email: <a href='mailto:${email}'>${email}</a></li>\n<li class='list-group-item'>GitHub: <a href='https://www.github.com/${gitHub}'>${gitHub}</a></li>\n</ul>\n</div>\n</div>\n`, (err) => {
-        err ? console.error(err) : console.log(`Manager card created successfully`)
+        err ? console.error(err) : console.log(`Engineer card created successfully`)
     });
 };
 
 createHTML.prototype.createInternCard = (name, id, email, school) => {
     fs.appendFile('./dist/index.html', `<div class='card shadow' style='width: 18rem;'>\n<div class='card-body'>\n<h5 class='card-title'>${name}</h5>\n<h6 class='card-subtitle mb-2 text-muted'>Intern</h6>\n<ul class='list-group list-group-flush'>\n<li class='list-group-item'>ID: ${id}</li>\n<li class='list-group-item'>Email: <a href='mailto:${email}'>${email}</a></li>\n<li class='list-group-item'>School: ${school}</li>\n</ul>\n</div>\n</div>\n`, (err) => {
-        err ? console.error(err) : console.log(`Manager card created successfully`)
+        err ? console.error(err) : console.log(`Intern card created successfully`)
     });
 };
 
